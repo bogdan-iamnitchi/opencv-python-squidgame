@@ -9,7 +9,7 @@ import threading
 import mediapipe as mp
 from pygame import mixer
 from enum import Enum
-from utils import bounding_box_cordinates, frame2QtImage, getCordLists, getchar
+from utils import bounding_box_cordinates, frame2QtImage, getCordLists
 
 mixer.init()
 
@@ -83,7 +83,9 @@ class Thread(QThread):
         alarm = False     
         alarm_counter = 0
         while True:
-            _, frame = self.cap.read()
+            ret, frame = self.cap.read()
+            if not ret:
+                break
             result = pose.process(frame)
             
             if result.pose_landmarks:
