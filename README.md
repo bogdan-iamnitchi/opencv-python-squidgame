@@ -1,3 +1,2 @@
-# ip-opencv-squidgame
-# ip-opencv-squidgame
-# ip-opencv-squidgame
+# opencv-python-squidgame
+
